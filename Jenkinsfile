@@ -13,6 +13,6 @@ pipeline {
 	                 }}
 		stage('Deployment'){
 		    steps {
-			sh 'cp target/project1.war /home/grras/slave-dir/apache-tomcat-9.0.82/webapps'
+			sh 'cp target/project1.war /home/kunal/Documents/Devops_software/tar/apache-tomcat-9.0.82/webapps'
 			}}	
 }}
