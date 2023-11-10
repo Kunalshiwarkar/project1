@@ -1,6 +1,11 @@
 pipeline {
-	agent{
-	label 'mens-label'
+	agent {
+  label 'mens-label'
+}
+
+	
+	parameters {
+		choice(name: 'ENVIRONMENT', choices: ['QA','UAT'], description: 'Pick Environment value')
 	}
 	stages {
 	    stage('Checkout') {
@@ -12,7 +17,7 @@ pipeline {
 			  sh '/home/grras/slave-dir/apache-maven-3.9.5/bin/mvn install'
 	                 }}
 		stage('Deployment'){
-		    steps {
-			sh 'cp target/project1.war /home/kunal/Documents/Devops_software/tar/apache-tomcat-9.0.82/webapps'
+		   steps {
+		sh 'cp target/project1.war /home/grras/slave-dir/apache-tomcat-9.0.82/webapps'
 			}}	
 }}
